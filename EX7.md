@@ -23,14 +23,11 @@ class BTreeNode:
     self.leaf = leaf
     self.keys = []
     self.child = []
-
-
 # Tree
 class BTree:
   def __init__(self, t):
     self.root = BTreeNode(True)
     self.t = t
-
     # Insert node
   def insert(self, k):
     root = self.root
@@ -42,7 +39,6 @@ class BTree:
       self.insert_non_full(temp, k)
     else:
       self.insert_non_full(root, k)
-
     # Insert nonfull
   def insert_non_full(self, x, k):
     i = len(x.keys) - 1
@@ -61,7 +57,6 @@ class BTree:
         if k[0] > x.keys[i][0]:
           i += 1
       self.insert_non_full(x.child[i], k)
-
     # Split the child
   def split_child(self, x, i):
     t = self.t
@@ -97,11 +92,9 @@ class BTree:
       elif x.leaf:
         return None
       else:
-        return self.search_key(k, x.child[i])
-      
+        return self.search_key(k, x.child[i])     
     else:
       return self.search_key(k, self.root)
-
 
 def main():
   B = BTree(3)
@@ -115,8 +108,6 @@ def main():
     print("\nFound")
   else:
     print("\nNot Found")
-
-
 if __name__ == '__main__':
   main()
 ```
@@ -125,4 +116,3 @@ if __name__ == '__main__':
 
 ## RESULT:
 Thus the python program for the implementation of B-Tree Indexing has been executed successfully.
-
